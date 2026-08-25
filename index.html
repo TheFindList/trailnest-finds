@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Trailnest Finds — practical camping, overlanding, vehicle gear, camp kitchen picks, sleep systems, and trail-ready finds." />
+  <title>Trailnest Finds | Camping • Overlanding • Trail Gear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pine:#173326;
+      --pine-2:#234838;
+      --moss:#6f7f52;
+      --sand:#e8dfce;
+      --cream:#f6f1e7;
+      --rust:#b45d36;
+      --charcoal:#1d211f;
+      --muted:#69716b;
+      --white:#fffdf8;
+      --shadow:0 18px 50px rgba(27,39,31,.14);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--charcoal);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(1160px,calc(100% - 34px));margin:auto}
+    .topbar{background:#10271d;color:#dce7de;text-align:center;padding:9px 12px;font-size:.82rem;letter-spacing:.06em}
+    header{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(23,51,38,.1)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:.03em;text-transform:uppercase}
+    .mark{width:42px;height:42px;border-radius:50%;background:var(--pine);display:grid;place-items:center;color:var(--sand);font-size:21px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.08)}
+    .navlinks{display:flex;gap:24px;font-weight:600;font-size:.92rem;align-items:center}
+    .navlinks a:hover{color:var(--rust)}
+    .menu{display:none;border:0;background:var(--pine);color:white;width:42px;height:42px;border-radius:12px;font-size:20px}
+
+    .hero{min-height:690px;display:grid;align-items:end;background:
+      linear-gradient(90deg,rgba(10,28,20,.87) 0%,rgba(10,28,20,.68) 44%,rgba(10,28,20,.22) 100%),
+      url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;color:white}
+    .hero-inner{padding:120px 0 86px;max-width:760px}
+    .eyebrow{text-transform:uppercase;letter-spacing:.19em;font-size:.78rem;font-weight:700;color:#d3ddbd;margin-bottom:14px}
+    h1,h2,h3{font-family:"Barlow Condensed",sans-serif;margin:0;line-height:.98}
+    h1{font-size:clamp(4rem,8vw,7.4rem);text-transform:uppercase;letter-spacing:-.025em}
+    .hero p{font-size:1.12rem;max-width:620px;color:#edf2ec;margin:22px 0 30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:999px;font-weight:700;border:1px solid transparent;transition:.2s ease}
+    .btn-primary{background:var(--rust);color:white}.btn-primary:hover{transform:translateY(-2px);background:#9e4d2d}
+    .btn-ghost{border-color:rgba(255,255,255,.48);color:white;background:rgba(255,255,255,.06)}.btn-ghost:hover{background:rgba(255,255,255,.14)}
+
+    section{padding:84px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+    .section-head h2{font-size:clamp(2.5rem,5vw,4.1rem);text-transform:uppercase;color:var(--pine)}
+    .section-head p{max-width:560px;color:var(--muted);margin:0}
+
+    .categories{margin-top:-48px;position:relative;z-index:4;padding-top:0}
+    .category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+    .cat{background:var(--white);border:1px solid rgba(23,51,38,.1);border-radius:18px;padding:22px 15px;text-align:center;box-shadow:var(--shadow);transition:.2s ease;cursor:pointer}
+    .cat:hover{transform:translateY(-5px);border-color:rgba(180,93,54,.45)}
+    .cat .icon{font-size:1.8rem;display:block;margin-bottom:10px}.cat strong{font-size:.9rem}
+
+    .guide-grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:18px}
+    .guide{min-height:390px;border-radius:var(--radius);overflow:hidden;position:relative;background:#35473d;color:white;box-shadow:var(--shadow)}
+    .guide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(8,24,16,.88) 100%)}
+    .guide.one{background:url('https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1200&q=80') center/cover}
+    .guide.two{background:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80') center/cover}
+    .guide.three{background:url('https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=1000&q=80') center/cover}
+    .guide-content{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}
+    .badge{display:inline-block;background:rgba(246,241,231,.9);color:var(--pine);padding:7px 10px;border-radius:999px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+    .guide h3{font-size:2.2rem;text-transform:uppercase}.guide p{margin:8px 0 0;color:#e5ebe6;font-size:.9rem}
+
+    .gear-band{background:var(--pine);color:white;position:relative;overflow:hidden}
+    .gear-band::before{content:"";position:absolute;right:-140px;top:-160px;width:520px;height:520px;border:1px solid rgba(255,255,255,.08);border-radius:50%;box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.02)}
+    .gear-band .section-head h2{color:white}.gear-band .section-head p{color:#c9d3cc}
+    .gear-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;z-index:2}
+    .gear-card{background:#244535;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:24px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between}
+    .gear-card span{font-size:2rem}.gear-card h3{font-size:1.65rem;text-transform:uppercase;margin-top:22px}.gear-card p{font-size:.88rem;color:#cbd5ce;margin:7px 0 0}
+
+    .mission{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .photo{min-height:520px;border-radius:var(--radius);background:
+      linear-gradient(180deg,rgba(10,26,19,.04),rgba(10,26,19,.28)),
+      url('https://images.unsplash.com/photo-1525811902-f2342640856e?auto=format&fit=crop&w=1200&q=85') center/cover;box-shadow:var(--shadow)}
+    .mission-copy h2{font-size:clamp(3rem,5vw,5rem);text-transform:uppercase;color:var(--pine)}
+    .mission-copy p{color:var(--muted);font-size:1.02rem}
+    .check{display:flex;gap:12px;margin:16px 0}.check i{font-style:normal;background:var(--sand);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;color:var(--pine);font-weight:900}
+
+    .signup{background:var(--sand);border-radius:28px;padding:42px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .signup h2{font-size:3.2rem;text-transform:uppercase;color:var(--pine)}
+    .signup p{margin:10px 0 0;color:#5f675f}
+    .signup-form{display:flex;background:white;border-radius:999px;padding:6px;box-shadow:0 12px 28px rgba(23,51,38,.08)}
+    .signup-form input{border:0;outline:0;background:transparent;padding:0 16px;min-width:0;flex:1;font:inherit}
+    .signup-form button{border:0;border-radius:999px;background:var(--pine);color:white;padding:13px 19px;font-weight:700;cursor:pointer}
+    .signup-form button:hover{background:var(--pine-2)}
+    .status{font-size:.8rem;margin-top:9px;color:#5d665f}
+
+    footer{background:#10271d;color:#cbd6ce;padding:46px 0 28px;margin-top:84px}
+    .footer-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:end}
+    .footer-brand{font-family:"Barlow Condensed";text-transform:uppercase;font-size:2rem;font-weight:800;color:white}
+    footer p{max-width:580px;font-size:.86rem}.footer-links{display:flex;justify-content:flex-end;gap:18px;flex-wrap:wrap;font-size:.85rem;font-weight:600}
+    .fine{border-top:1px solid rgba(255,255,255,.08);margin-top:28px;padding-top:18px;font-size:.75rem;color:#8fa096}
+
+    @media(max-width:900px){
+      .navlinks{display:none;position:absolute;left:17px;right:17px;top:68px;background:var(--cream);border-radius:16px;padding:16px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}
+      .navlinks.open{display:flex}.navlinks a{padding:12px}.menu{display:block}
+      .category-grid{grid-template-columns:repeat(3,1fr)}
+      .guide-grid{grid-template-columns:1fr 1fr}.guide:first-child{grid-column:1/-1}
+      .gear-grid{grid-template-columns:1fr 1fr}.mission{grid-template-columns:1fr}.photo{min-height:400px}.signup{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      .topbar{font-size:.72rem}.nav{height:68px}.brand{font-size:1.25rem}.mark{width:38px;height:38px}
+      .hero{min-height:640px;background-position:62% center}.hero-inner{padding:104px 0 68px}.hero p{font-size:1rem}
+      section{padding:64px 0}.categories{margin-top:-30px}.category-grid{grid-template-columns:repeat(2,1fr)}
+      .section-head{display:block}.section-head p{margin-top:10px}
+      .guide-grid{grid-template-columns:1fr}.guide:first-child{grid-column:auto}.guide{min-height:330px}
+      .gear-grid{grid-template-columns:1fr}.mission-copy h2{font-size:3.3rem}.signup{padding:28px 20px}.signup h2{font-size:2.5rem}.signup-form{border-radius:18px;display:block;background:transparent;box-shadow:none}.signup-form input{width:100%;background:white;height:48px;border-radius:13px;margin-bottom:8px}.signup-form button{width:100%;border-radius:13px;height:48px}.footer-grid{grid-template-columns:1fr}.footer-links{justify-content:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">BUILT FOR WEEKENDS OUTSIDE • CAMPING • OVERLANDING • TRAIL GEAR</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top"><span class="mark">▲</span><span>Trailnest Finds</span></a>
+      <nav class="navlinks" id="navlinks">
+        <a href="#gear">Gear</a><a href="#guides">Guides</a><a href="#overlanding">Overlanding</a><a href="#deals">Deals</a><a href="#about">About</a>
+      </nav>
+      <button class="menu" id="menu" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="eyebrow">Get outside. Bring the right stuff.</div>
+        <h1>Find Your<br>Next Camp.</h1>
+        <p>Trail-tested ideas, practical gear picks, and overlanding inspiration for people who would rather wake up under pines than fluorescent lights.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#guides">Explore Trail Guides →</a><a class="btn btn-ghost" href="#gear">Browse Gear</a></div>
+      </div>
+    </section>
+
+    <section class="categories" id="gear">
+      <div class="wrap category-grid">
+        <a class="cat" href="#camping"><span class="icon">⛺</span><strong>Camping Gear</strong></a>
+        <a class="cat" href="#overlanding"><span class="icon">🚙</span><strong>Overlanding</strong></a>
+        <a class="cat" href="#kitchen"><span class="icon">🔥</span><strong>Camp Kitchen</strong></a>
+        <a class="cat" href="#sleep"><span class="icon">🌙</span><strong>Sleep Systems</strong></a>
+        <a class="cat" href="#vehicle"><span class="icon">🧭</span><strong>Vehicle Gear</strong></a>
+        <a class="cat" href="#deals"><span class="icon">🏷️</span><strong>Trail Deals</strong></a>
+      </div>
+    </section>
+
+    <section id="guides">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow" style="color:var(--rust)">Start here</div><h2>Field Guides</h2></div><p>Useful, straightforward content built around real camping decisions — what to bring, what matters, and what you can skip.</p></div>
+        <div class="guide-grid">
+          <article class="guide one" id="camping"><div class="guide-content"><span class="badge">Beginner Guide</span><h3>Build a better campsite</h3><p>Our starter framework for shelter, sleep, cooking, lighting, and staying organized.</p></div></article>
+          <article class="guide two" id="overlanding"><div class="guide-content"><span class="badge">Overlanding</span><h3>Vehicle-first adventure</h3><p>Smart upgrades before expensive upgrades.</p></div></article>
+          <article class="guide three"><div class="guide-content"><span class="badge">Weekend Ready</span><h3>Pack lighter</h3><p>Keep the comfort. Lose the clutter.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gear-band" id="deals">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">Coming into focus</div><h2>Gear Worth Watching</h2></div><p>We’ll use these sections for verified products, direct product links, sale tracking, and deeper buying guides as the catalog grows.</p></div>
+        <div class="gear-grid">
+          <div class="gear-card" id="sleep"><span>🛏️</span><div><h3>Sleep Systems</h3><p>Tents, pads, sleeping bags, rooftop setups, blankets and camp comfort.</p></div></div>
+          <div class="gear-card" id="kitchen"><span>🍳</span><div><h3>Camp Kitchen</h3><p>Stoves, cookware, coolers, coffee gear and simple food-prep upgrades.</p></div></div>
+          <div class="gear-card" id="vehicle"><span>🛻</span><div><h3>Vehicle Gear</h3><p>Storage, recovery basics, lighting, power, racks and trail organization.</p></div></div>
+          <div class="gear-card"><span>🎒</span><div><h3>Budget Finds</h3><p>Useful gear that earns its spot without destroying the trip budget.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap mission">
+        <div class="photo" role="img" aria-label="Outdoor campsite in the mountains"></div>
+        <div class="mission-copy">
+          <div class="eyebrow" style="color:var(--rust)">The Trailnest standard</div>
+          <h2>Useful beats flashy.</h2>
+          <p>Trailnest Finds is built for people who want to spend more time outside and less time sorting through junk recommendations. The goal is simple: practical gear, clear guides, and honest reasons why something deserves space in your vehicle or pack.</p>
+          <div class="check"><i>✓</i><div><strong>Product-first links</strong><br><span style="color:var(--muted)">When we feature gear, links should go to the exact item — not a generic homepage.</span></div></div>
+          <div class="check"><i>✓</i><div><strong>No empty recommendations</strong><br><span style="color:var(--muted)">Only products actually present on the site should be promoted through social content.</span></div></div>
+          <div class="check"><i>✓</i><div><strong>Built for mobile</strong><br><span style="color:var(--muted)">Tap targets, navigation, and layouts are designed to work cleanly on phones.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap signup">
+        <div><div class="eyebrow" style="color:var(--rust)">Trail Notes</div><h2>Good gear. Better weekends.</h2><p>A future home for new finds, deal alerts, packing ideas, and fresh trail guides.</p></div>
+        <div><form class="signup-form" id="signup"><input type="email" placeholder="Email address" aria-label="Email address" required><button type="submit">Join the list</button></form><div class="status" id="status">Newsletter signup will be connected when the email platform is chosen.</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid"><div><div class="footer-brand">▲ Trailnest Finds</div><p>Camping, overlanding, trail gear and practical outdoor finds. Some future product links may be affiliate links, which can earn us a commission at no extra cost to the buyer.</p></div><div class="footer-links"><a href="#gear">Gear</a><a href="#guides">Guides</a><a href="#about">About</a><a href="#top">Back to top ↑</a></div></div>
+      <div class="fine">© 2026 Trailnest Finds. Outdoor conditions vary — always check product instructions, vehicle limits, local regulations, weather and trail conditions before heading out.</div>
+    </div>
+  </footer>
+
+  <script>
+    const menu=document.getElementById('menu');
+    const nav=document.getElementById('navlinks');
+    menu.addEventListener('click',()=>nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+    document.getElementById('signup').addEventListener('submit',e=>{
+      e.preventDefault();
+      document.getElementById('status').textContent='Thanks — signup is staged visually and ready to connect to an email service.';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
